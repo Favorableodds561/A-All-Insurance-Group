@@ -663,7 +663,7 @@ ul{list-style:none}
 }
 .chat-popup.open{
   transform:scale(1) translateY(0);
-  opacity:1;pointer-events:all;
+  opacity:1;pointer-events:auto;
 }
 .chat-popup-header{
   background:linear-gradient(135deg,var(--teal),var(--teal-dk));
@@ -1206,63 +1206,52 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{
 })();
 
 // ================================================================
-// FEATURE 3: CHAT BUBBLE — auto-open after 15s, then close behavior
+// FEATURE 3: CHAT BUBBLE
 // ================================================================
-(function() {
-  const popup = document.getElementById('chatPopup');
-  const toggle = document.getElementById('chatToggle');
-  const closeBtn = document.getElementById('chatClose');
-  const quoteBtn = document.getElementById('chatQuoteBtn');
-  if (!popup || !toggle) return;
+(function initChat() {
+  var popup  = document.getElementById('chatPopup');
+  var toggle = document.getElementById('chatToggle');
+  var closeBtn = document.getElementById('chatClose');
+  var quoteBtn = document.getElementById('chatQuoteBtn');
 
-  let opened = false;
-  let dismissed = false;
+  if (!popup || !toggle) { console.warn('Chat: elements missing'); return; }
+
+  var isOpen = false;
 
   function openChat() {
-    if (dismissed) return;
     popup.classList.add('open');
-    // Hide notification dot once seen
-    const notif = toggle.querySelector('.chat-notif');
+    var notif = toggle.querySelector('.chat-notif');
     if (notif) notif.style.display = 'none';
-    opened = true;
+    toggle.innerHTML = '✕';
+    isOpen = true;
   }
 
   function closeChat() {
     popup.classList.remove('open');
-    dismissed = true;
+    toggle.innerHTML = '💬';
+    isOpen = false;
   }
 
-  // Auto-open after 15 seconds if user hasn't scrolled to form
-  const autoTimer = setTimeout(() => {
-    const formVisible = document.getElementById('quote').getBoundingClientRect().top < window.innerHeight;
-    if (!formVisible && !dismissed) openChat();
-  }, 15000);
+  toggle.addEventListener('click', function() {
+    isOpen ? closeChat() : openChat();
+  });
 
-  toggle.addEventListener('click', () => {
-    if (popup.classList.contains('open')) {
-      closeChat();
-      dismissed = false; // allow re-opening
-    } else {
-      dismissed = false;
+  if (closeBtn) closeBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeChat();
+  });
+
+  if (quoteBtn) quoteBtn.addEventListener('click', function() {
+    closeChat();
+  });
+
+  // Auto-open after 15s if form not visible
+  setTimeout(function() {
+    var formRect = document.getElementById('quote');
+    if (formRect && formRect.getBoundingClientRect().top > window.innerHeight) {
       openChat();
     }
-  });
-
-  closeBtn.addEventListener('click', closeChat);
-
-  // Close popup when quote button is clicked
-  quoteBtn.addEventListener('click', () => {
-    closeChat();
-    clearTimeout(autoTimer);
-  });
-
-  // If user scrolls to form, cancel auto-open
-  window.addEventListener('scroll', () => {
-    const formTop = document.getElementById('quote').getBoundingClientRect().top;
-    if (formTop < window.innerHeight * 0.8) {
-      clearTimeout(autoTimer);
-    }
-  }, { passive: true, once: true });
+  }, 15000);
 })();
 
 </script>
