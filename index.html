@@ -4,18 +4,495 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A-All Insurance Group Inc | Free Auto Insurance Quote — South Florida</title>
-  <meta name="description" content="Get a fast, free auto insurance quote from A-All Insurance Group. Save money today — local agents, top carriers, instant coverage." />
+  <meta name="description" content="Get a fast, free auto insurance quote from A-All Insurance Group. Save money — local agents, top carriers, instant coverage." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ================================================
+   A-ALL INSURANCE — ALL-IN-ONE STYLES
+   ================================================ */
+:root {
+  --teal:#1BAAB1; --teal-dk:#148a90; --teal-lt:#2DC5CB;
+  --teal-glow:rgba(27,170,177,0.20);
+  --slate:#2e3240; --slate-mid:#3d4355; --slate-lt:#4A4F5A;
+  --white:#fff; --off:#f4f7fa; --border:#dde3ec;
+  --text:#1a1f2e; --muted:#637083;
+  --fd:'Barlow Condensed',sans-serif; --fb:'Barlow',sans-serif;
+  --r:14px; --r-lg:22px;
+  --sh:0 4px 28px rgba(0,0,0,0.09);
+  --sh-lg:0 16px 60px rgba(0,0,0,0.16);
+  --sh-teal:0 8px 36px rgba(27,170,177,0.30);
+  --t:0.26s cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--text);background:var(--white);overflow-x:hidden;line-height:1.65}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* ===== HEADER ===== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:9000;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(14px);
+  border-bottom:3px solid transparent;
+  transition:all var(--t);
+}
+.site-header.scrolled{
+  box-shadow:0 3px 30px rgba(0,0,0,0.14);
+  border-bottom-color:var(--teal);
+}
+.hdr-inner{
+  max-width:1200px;margin:0 auto;padding:0 28px;
+  display:flex;align-items:center;gap:2rem;height:76px;
+}
+.hdr-logo img{height:54px;width:auto}
+.hdr-nav{display:flex;gap:1.75rem;margin-left:auto}
+.hdr-nav a{
+  font-family:var(--fd);font-weight:700;font-size:.9rem;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--slate-lt);
+  transition:color var(--t);position:relative;padding-bottom:2px;
+}
+.hdr-nav a::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;
+  height:2px;background:var(--teal);transform:scaleX(0);
+  transition:transform var(--t);
+}
+.hdr-nav a:hover{color:var(--teal)}
+.hdr-nav a:hover::after{transform:scaleX(1)}
+.hdr-phone{
+  display:flex;align-items:center;gap:8px;
+  background:var(--teal);color:white;
+  padding:11px 22px;border-radius:8px;
+  font-family:var(--fd);font-weight:800;font-size:1rem;
+  letter-spacing:.03em;flex-shrink:0;
+  box-shadow:var(--sh-teal);transition:all var(--t);
+}
+.hdr-phone:hover{background:var(--teal-dk);transform:translateY(-2px)}
+.hdr-burger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;margin-left:auto;padding:4px;
+}
+.hdr-burger span{display:block;width:26px;height:2.5px;background:var(--slate);border-radius:3px;transition:all var(--t)}
+.mobile-menu{
+  display:none;flex-direction:column;
+  padding:16px 28px 22px;
+  background:var(--white);border-top:1px solid var(--border);
+}
+.mobile-menu a{
+  padding:13px 0;font-family:var(--fd);font-weight:700;
+  font-size:1rem;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--slate);border-bottom:1px solid var(--off);
+}
+.mobile-menu .mob-call{
+  margin-top:14px;background:var(--teal);color:white;
+  padding:15px 20px;border-radius:8px;text-align:center;border-bottom:none;
+}
+.mobile-menu.open{display:flex}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(140deg,#1a2035 0%,#0f1828 55%,#0a1520 100%);
+  padding:110px 0 0;min-height:100vh;
+  display:flex;flex-direction:column;
+}
+.hero-mesh{position:absolute;inset:0;pointer-events:none;z-index:1}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.14}
+.orb1{width:700px;height:700px;background:var(--teal);top:-180px;right:-120px;animation:drift 9s ease-in-out infinite}
+.orb2{width:500px;height:500px;background:#1d6fa8;bottom:60px;left:-120px;animation:drift 12s ease-in-out infinite reverse}
+.orb3{width:350px;height:350px;background:var(--teal-lt);top:40%;left:38%;animation:drift 15s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-30px) scale(1.06)}}
+
+/* Logo watermark hero */
+.hero-wm{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(780px,88vw);pointer-events:none;z-index:2;
+}
+.hero-wm img{width:100%;height:auto;opacity:.09;filter:brightness(0) invert(1)}
+
+.hero-slash{
+  position:absolute;bottom:0;left:0;right:0;height:160px;
+  background:var(--white);
+  clip-path:polygon(0 70%,100% 0,100% 100%,0 100%);
+  z-index:3;
+}
+.hero-wrap{
+  position:relative;z-index:4;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+  padding:3rem 0 180px;
+}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(27,170,177,.15);border:1px solid rgba(27,170,177,.35);
+  color:var(--teal-lt);padding:7px 18px;border-radius:100px;
+  font-family:var(--fd);font-weight:700;font-size:.82rem;
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.6rem;
+  animation:fadeUp .6s ease both;
+}
+.hero-copy h1{
+  font-family:var(--fd);font-weight:900;
+  font-size:clamp(3.2rem,6vw,5.2rem);
+  line-height:.96;color:white;margin-bottom:1.6rem;
+  animation:fadeUp .7s .1s ease both;
+}
+.grad-txt{
+  background:linear-gradient(90deg,var(--teal-lt) 0%,#6ee7ea 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-desc{
+  font-size:1.15rem;color:rgba(255,255,255,.72);max-width:460px;
+  margin-bottom:2.2rem;line-height:1.7;
+  animation:fadeUp .7s .2s ease both;
+}
+.hero-btns{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:2rem;animation:fadeUp .7s .3s ease both}
+.btn-hero-primary{
+  background:var(--teal);color:white;
+  padding:17px 36px;border-radius:10px;
+  font-family:var(--fd);font-weight:800;font-size:1.1rem;
+  letter-spacing:.04em;text-transform:uppercase;
+  box-shadow:var(--sh-teal);transition:all var(--t);
+  display:inline-block;
+  animation:pulse-cta 2.5s infinite;
+}
+.btn-hero-primary:hover{background:var(--teal-dk);transform:translateY(-3px);box-shadow:0 14px 44px rgba(27,170,177,.45)}
+@keyframes pulse-cta{0%,100%{box-shadow:0 8px 36px rgba(27,170,177,.30)}50%{box-shadow:0 8px 50px rgba(27,170,177,.55)}}
+.btn-hero-call{
+  display:inline-flex;align-items:center;gap:10px;
+  border:2px solid rgba(255,255,255,.40);color:white;
+  padding:17px 32px;border-radius:10px;
+  font-family:var(--fd);font-weight:800;font-size:1.1rem;
+  letter-spacing:.04em;text-transform:uppercase;transition:all var(--t);
+}
+.btn-hero-call:hover{background:rgba(255,255,255,.10);border-color:white}
+.ring-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:#4ade80;flex-shrink:0;
+  animation:ring-pulse 1.8s infinite;
+}
+@keyframes ring-pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}70%{box-shadow:0 0 0 9px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.hero-trust{display:flex;gap:1.5rem;flex-wrap:wrap;animation:fadeUp .7s .4s ease both}
+.hero-trust span{font-family:var(--fd);font-weight:600;font-size:.9rem;color:rgba(255,255,255,.65);letter-spacing:.03em}
+
+/* Form card */
+.hero-form-wrap{animation:fadeUp .8s .2s ease both}
+.form-card{
+  background:white;border-radius:var(--r-lg);
+  padding:2.6rem 2.4rem;
+  box-shadow:0 28px 90px rgba(0,0,0,.35);
+  position:relative;z-index:5;
+}
+.form-top{margin-bottom:1.6rem}
+.form-chip{
+  display:inline-block;background:var(--teal);color:white;
+  padding:4px 12px;border-radius:5px;
+  font-family:var(--fd);font-weight:800;font-size:.72rem;
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem;
+}
+.form-top h2{font-family:var(--fd);font-weight:900;font-size:1.9rem;color:var(--text);margin-bottom:.3rem}
+.form-top p{font-size:.94rem;color:var(--muted)}
+#quoteForm{display:flex;flex-direction:column;gap:1rem}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg label{font-family:var(--fd);font-weight:700;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:var(--slate-lt)}
+.fg input,.fg select{
+  padding:13px 15px;border:2px solid var(--border);
+  border-radius:9px;font-family:var(--fb);font-size:1rem;color:var(--text);
+  background:white;transition:border-color var(--t),box-shadow var(--t);
+  -webkit-appearance:none;appearance:none;
+}
+.fg select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%234A4F5A' d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center;background-size:11px;cursor:pointer;
+}
+.fg input:focus,.fg select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px var(--teal-glow)}
+.fg input.err{border-color:#ef4444}
+.fg input::placeholder{color:#b0bac6}
+.form-btn{
+  width:100%;padding:17px;background:var(--teal);color:white;
+  border:none;border-radius:10px;cursor:pointer;
+  font-family:var(--fd);font-weight:900;font-size:1.15rem;
+  letter-spacing:.04em;text-transform:uppercase;
+  box-shadow:var(--sh-teal);transition:all var(--t);margin-top:4px;
+}
+.form-btn:hover{background:var(--teal-dk);transform:translateY(-2px)}
+.form-fine{font-size:.76rem;color:var(--muted);text-align:center;line-height:1.5}
+.form-thanks{display:none;text-align:center;padding:2rem 0}
+.ty-icon{font-size:3.5rem;margin-bottom:1rem}
+.form-thanks h3{font-family:var(--fd);font-weight:900;font-size:1.9rem;color:var(--text);margin-bottom:.6rem}
+.form-thanks p{color:var(--muted);margin-bottom:1.5rem}
+
+/* Stats bar */
+.hero-stats-bar{
+  position:relative;z-index:4;
+  background:rgba(27,170,177,.92);
+  backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
+  padding:1.4rem 28px;flex-wrap:wrap;gap:0;
+}
+.hstat{display:flex;flex-direction:column;align-items:center;padding:.5rem 2.5rem}
+.hstat strong{font-family:var(--fd);font-weight:900;font-size:1.8rem;color:white;line-height:1}
+.hstat span{font-size:.82rem;color:rgba(255,255,255,.82);font-weight:500;margin-top:2px}
+.hstat-sep{width:1px;height:44px;background:rgba(255,255,255,.3)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== SECTION BASE ===== */
+.sec{position:relative;padding:6rem 0;overflow:hidden}
+.sec-light{background:var(--white)}
+.sec-offwhite{background:var(--off)}
+.sec-dark{background:linear-gradient(140deg,var(--slate) 0%,#1a2035 100%)}
+
+/* Watermark in each section */
+.sec-wm{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(780px,88vw);pointer-events:none;z-index:0;
+}
+.sec-wm img{width:100%;height:auto;opacity:.055;filter:grayscale(1) contrast(1.1)}
+.sec-wm.inv img{opacity:.08;filter:brightness(0) invert(1)}
+
+.sec-eyebrow{
+  display:inline-block;font-family:var(--fd);font-weight:800;
+  font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--teal);background:var(--teal-glow);
+  padding:5px 16px;border-radius:100px;margin-bottom:1rem;
+}
+.sec-eyebrow.lt{color:var(--teal-lt);background:rgba(45,197,203,.15)}
+.sec-h2{font-family:var(--fd);font-weight:900;font-size:clamp(2.2rem,4vw,3.2rem);line-height:1.06;color:var(--text);margin-bottom:1rem}
+.sec-h2.wh{color:white}
+.c-teal{color:var(--teal)}
+.c-lt{color:var(--teal-lt)}
+.sec-p{font-size:1.1rem;color:var(--muted);max-width:540px;margin-bottom:3rem}
+.sec-p.mt{color:rgba(255,255,255,.65)}
+.sec-cta{text-align:center;margin-top:3.5rem}
+.rel{position:relative;z-index:1}
+
+/* Buttons */
+.btn-teal{
+  display:inline-block;background:var(--teal);color:white;
+  padding:16px 40px;border-radius:10px;
+  font-family:var(--fd);font-weight:800;font-size:1.05rem;
+  letter-spacing:.05em;text-transform:uppercase;
+  box-shadow:var(--sh-teal);transition:all var(--t);
+}
+.btn-teal:hover{background:var(--teal-dk);transform:translateY(-3px);box-shadow:0 14px 44px rgba(27,170,177,.45)}
+.btn-white{
+  display:inline-block;background:white;color:var(--teal);
+  padding:16px 40px;border-radius:10px;
+  font-family:var(--fd);font-weight:800;font-size:1.05rem;
+  letter-spacing:.05em;text-transform:uppercase;transition:all var(--t);
+}
+.btn-white:hover{background:var(--off);transform:translateY(-2px)}
+.btn-outline-wh{
+  display:inline-block;color:white;
+  border:2px solid rgba(255,255,255,.55);
+  padding:15px 38px;border-radius:10px;
+  font-family:var(--fd);font-weight:800;font-size:1.05rem;
+  letter-spacing:.05em;text-transform:uppercase;transition:all var(--t);
+}
+.btn-outline-wh:hover{border-color:white;background:rgba(255,255,255,.1)}
+
+/* ===== COVERAGE ===== */
+.cov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.cov-card{
+  background:var(--off);border:2px solid var(--border);
+  border-radius:var(--r);padding:2.2rem 1.8rem;
+  position:relative;transition:all var(--t);overflow:hidden;
+}
+.cov-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--teal);transform:scaleX(0);transform-origin:left;
+  transition:transform var(--t);
+}
+.cov-card:hover::before{transform:scaleX(1)}
+.cov-card:hover{border-color:var(--teal);transform:translateY(-6px);box-shadow:var(--sh-teal);background:white}
+.cov-card.hot{
+  background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dk) 100%);
+  border-color:var(--teal);box-shadow:var(--sh-teal);
+}
+.cov-card.hot::before{transform:scaleX(1);background:white;opacity:.3}
+.cov-card.hot h3,.cov-card.hot p{color:white}
+.cov-card.hot p{opacity:.88}
+.hot-tag{
+  position:absolute;top:-1px;right:16px;
+  background:white;color:var(--teal);
+  font-family:var(--fd);font-weight:800;font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 11px;border-radius:0 0 8px 8px;
+}
+.ci{font-size:2.4rem;margin-bottom:1rem}
+.cov-card h3{font-family:var(--fd);font-weight:800;font-size:1.2rem;color:var(--text);margin-bottom:.55rem}
+.cov-card p{font-size:.93rem;color:var(--muted);line-height:1.65}
+
+/* ===== WHY US ===== */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+.why-ul{display:flex;flex-direction:column;gap:1.4rem;margin-bottom:2.5rem}
+.why-ul li{display:flex;align-items:flex-start;gap:1rem}
+.wi{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.why-ul li div{display:flex;flex-direction:column;gap:3px}
+.why-ul strong{font-family:var(--fd);font-weight:800;font-size:1.05rem;color:white}
+.why-ul em{font-style:normal;font-size:.9rem;color:rgba(255,255,255,.6)}
+.carrier-box{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--r);padding:1.8rem;backdrop-filter:blur(10px);margin-bottom:1.4rem;
+}
+.carrier-box h4{font-family:var(--fd);font-weight:800;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:1rem}
+.ctags{display:flex;flex-wrap:wrap;gap:8px}
+.ctags span{
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
+  color:rgba(255,255,255,.85);padding:5px 13px;border-radius:100px;
+  font-size:.85rem;font-weight:500;transition:all var(--t);cursor:default;
+}
+.ctags span:hover{background:var(--teal);border-color:var(--teal);color:white}
+.sav-box{
+  background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dk) 100%);
+  border-radius:var(--r);padding:2rem;text-align:center;box-shadow:var(--sh-teal);
+}
+.sav-lbl{font-family:var(--fd);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:.5rem}
+.sav-num{font-family:var(--fd);font-weight:900;font-size:3.8rem;color:white;line-height:1;margin-bottom:.5rem}
+.sav-num sub{font-size:1.4rem;font-weight:600;opacity:.8}
+.sav-note{font-size:.87rem;color:rgba(255,255,255,.7);margin-bottom:1.2rem}
+.sav-link{font-family:var(--fd);font-weight:800;font-size:.95rem;color:white;opacity:.9;letter-spacing:.03em;transition:opacity var(--t)}
+.sav-link:hover{opacity:1;text-decoration:underline}
+
+/* ===== HOW IT WORKS ===== */
+.steps-row{display:flex;align-items:center;gap:1.4rem}
+.step{
+  background:white;border:2px solid var(--border);
+  border-radius:var(--r);padding:2.6rem 2rem;flex:1;
+  text-align:center;position:relative;transition:all var(--t);
+}
+.step:hover{border-color:var(--teal);transform:translateY(-6px);box-shadow:var(--sh-teal)}
+.snum{position:absolute;top:1rem;right:1.2rem;font-family:var(--fd);font-weight:900;font-size:4rem;color:#edf1f6;line-height:1}
+.sico{font-size:2.8rem;margin-bottom:1rem}
+.step h3{font-family:var(--fd);font-weight:800;font-size:1.2rem;color:var(--text);margin-bottom:.6rem}
+.step p{font-size:.93rem;color:var(--muted)}
+.sarrow{font-size:2.2rem;color:var(--teal);flex-shrink:0;font-weight:700}
+
+/* ===== REVIEWS ===== */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-bottom:2.5rem}
+.rev-card{background:white;border:2px solid var(--border);border-radius:var(--r);padding:2.2rem;transition:all var(--t)}
+.rev-card:hover{border-color:var(--teal);transform:translateY(-5px);box-shadow:var(--sh)}
+.rev-card.feat{border-color:var(--teal);box-shadow:var(--sh-teal);transform:translateY(-10px)}
+.rev-stars{color:#f59e0b;font-size:1.2rem;letter-spacing:2px;margin-bottom:1rem}
+.rev-card>p{font-size:.96rem;color:var(--slate-lt);font-style:italic;line-height:1.75;margin-bottom:1.5rem}
+.rev-who{display:flex;align-items:center;gap:12px}
+.rev-av{width:44px;height:44px;background:var(--teal);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:900;font-size:1.2rem;flex-shrink:0}
+.rev-who strong{display:block;font-weight:700;font-size:.97rem;color:var(--text)}
+.rev-who span{font-size:.82rem;color:var(--muted)}
+.g-badge{
+  display:flex;align-items:center;gap:16px;justify-content:center;
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r);padding:1.25rem 2rem;
+  max-width:340px;margin:0 auto;box-shadow:var(--sh);
+}
+.g-dot{width:44px;height:44px;background:#4285f4;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:900;font-size:1.4rem;flex-shrink:0}
+.g-badge strong{display:block;font-size:1.1rem;font-weight:700;color:var(--text)}
+.g-badge span{font-size:.83rem;color:var(--muted)}
+
+/* ===== SERVICES ===== */
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.srv-tile{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);
+  border-radius:var(--r);padding:2.2rem 1.6rem;text-align:center;
+  transition:all var(--t);display:block;backdrop-filter:blur(8px);
+}
+.srv-tile:hover{background:var(--teal);border-color:var(--teal);transform:translateY(-6px);box-shadow:var(--sh-teal)}
+.srv-ico{font-size:2.5rem;display:block;margin-bottom:.9rem}
+.srv-tile h4{font-family:var(--fd);font-weight:800;font-size:1.1rem;color:white;margin-bottom:.4rem;letter-spacing:.02em}
+.srv-tile p{font-size:.87rem;color:rgba(255,255,255,.65)}
+
+/* ===== CTA BAND ===== */
+.cta-band{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dk) 100%);
+  padding:4.5rem 0;
+}
+.cta-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:2.5rem;flex-wrap:wrap}
+.cta-inner h2{font-family:var(--fd);font-weight:900;font-size:2.2rem;color:white;margin-bottom:.4rem}
+.cta-inner p{color:rgba(255,255,255,.85);font-size:1.1rem}
+.cta-btns{display:flex;gap:1.2rem;flex-wrap:wrap}
+
+/* ===== FOOTER ===== */
+.site-footer{background:#0e1322;color:rgba(255,255,255,.65);padding:5rem 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-brand p{font-size:.9rem;line-height:1.75;max-width:280px;margin-top:1rem}
+.ft-logo{height:58px;width:auto;filter:brightness(0) invert(1);opacity:.85}
+.ft-col h5{font-family:var(--fd);font-weight:800;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:white;margin-bottom:1.3rem}
+.ft-col a,.ft-col p{display:block;color:rgba(255,255,255,.55);font-size:.9rem;margin-bottom:.7rem;transition:color var(--t)}
+.ft-col a:hover{color:var(--teal-lt)}
+.ft-hours{font-size:.84rem !important;opacity:.5;line-height:1.7}
+.ft-bar{padding:1.4rem 0;background:rgba(0,0,0,.3)}
+.ft-bar-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.ft-bar p{font-size:.8rem;color:rgba(255,255,255,.35)}
+.ft-bar div{display:flex;gap:1.5rem}
+.ft-bar a{font-size:.8rem;color:rgba(255,255,255,.35);transition:color var(--t)}
+.ft-bar a:hover{color:var(--teal-lt)}
+
+/* Floating button */
+.fab{
+  display:none;position:fixed;bottom:24px;right:24px;z-index:8000;
+  width:60px;height:60px;background:var(--teal);color:white;
+  border-radius:50%;align-items:center;justify-content:center;
+  font-size:1.6rem;box-shadow:0 8px 30px rgba(27,170,177,.55);
+  transition:all var(--t);animation:pulse-cta 2.5s infinite;
+}
+.fab:hover{background:var(--teal-dk);transform:scale(1.12)}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .hero-wrap{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .cov-grid{grid-template-columns:repeat(2,1fr)}
+  .rev-grid{grid-template-columns:repeat(2,1fr)}
+  .rev-card.feat{transform:none}
+  .why-grid{gap:3rem}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .hdr-nav,.hdr-phone{display:none}
+  .hdr-burger{display:flex}
+  .fab{display:flex}
+  .hero{padding-top:88px}
+  .hero-wrap{grid-template-columns:1fr;gap:3rem;padding-bottom:140px}
+  .hero-copy{text-align:center}
+  .hero-btns{justify-content:center}
+  .hero-trust{justify-content:center}
+  .hero-wm{display:none}
+  .cov-grid{grid-template-columns:1fr}
+  .steps-row{flex-direction:column}
+  .sarrow{transform:rotate(90deg)}
+  .why-grid{grid-template-columns:1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .srv-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .hstat-sep{display:none}
+  .hstat{padding:.5rem 1.2rem}
+  .cta-inner{flex-direction:column;text-align:center}
+  .frow2{grid-template-columns:1fr}
+  .sec-wm{display:none}
+}
+@media(max-width:480px){
+  .srv-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .ft-bar-in{flex-direction:column;text-align:center}
+}
+</style>
 </head>
 <body>
 
-<!-- ========== HEADER ========== -->
+<!-- HEADER -->
 <header class="site-header" id="siteHeader">
   <div class="hdr-inner">
-    <a href="#" class="hdr-logo"><img src="images/logo.png" alt="A-All Insurance Group Inc" /></a>
+    <a href="#" class="hdr-logo"><img src="logo.png" alt="A-All Insurance Group Inc" /></a>
     <nav class="hdr-nav">
       <a href="#quote">Get a Quote</a>
       <a href="#coverage">Coverage</a>
@@ -27,30 +504,26 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
       (561) 631-2155
     </a>
-    <button class="hdr-burger" id="burgerBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hdr-burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#quote" onclick="closeMobile()">Get a Quote</a>
     <a href="#coverage" onclick="closeMobile()">Coverage</a>
     <a href="#why" onclick="closeMobile()">Why Us</a>
     <a href="#reviews" onclick="closeMobile()">Reviews</a>
-    <a href="#services" onclick="closeMobile()">Services</a>
     <a href="tel:+15616312155" class="mob-call">📞 (561) 631-2155</a>
   </div>
 </header>
 
-<!-- ========== HERO ========== -->
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-mesh">
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
     <div class="orb orb3"></div>
   </div>
-  <div class="hero-wm"><img src="images/logo.png" alt="" aria-hidden="true" /></div>
+  <div class="hero-wm"><img src="logo.png" alt="" aria-hidden="true" /></div>
   <div class="hero-slash"></div>
-
   <div class="wrap hero-wrap">
     <div class="hero-copy">
       <div class="hero-pill">⚡ South Florida's #1 Independent Insurance Agency</div>
@@ -58,9 +531,7 @@
       <p class="hero-desc">We compare 20+ top carriers to find your lowest rate — fast. Local agents. Real savings. Zero pressure.</p>
       <div class="hero-btns">
         <a href="#quote" class="btn-hero-primary">Get My Free Quote →</a>
-        <a href="tel:+15616312155" class="btn-hero-call">
-          <span class="ring-dot"></span> Call Now
-        </a>
+        <a href="tel:+15616312155" class="btn-hero-call"><span class="ring-dot"></span> Call Now</a>
       </div>
       <div class="hero-trust">
         <span>✅ Free in 2 Min</span>
@@ -68,7 +539,6 @@
         <span>✅ Same-Day Coverage</span>
       </div>
     </div>
-
     <div class="hero-form-wrap" id="quote">
       <div class="form-card">
         <div class="form-top">
@@ -87,19 +557,12 @@
             <div class="fg"><label>ZIP Code</label><input type="text" id="fZip" placeholder="33401" maxlength="5" required /></div>
             <div class="fg">
               <label>Vehicles</label>
-              <select id="fVehicles">
-                <option value="">Select...</option>
-                <option>1 Vehicle</option><option>2 Vehicles</option><option>3 Vehicles</option><option>4+</option>
-              </select>
+              <select id="fVehicles"><option value="">Select...</option><option>1 Vehicle</option><option>2 Vehicles</option><option>3 Vehicles</option><option>4+</option></select>
             </div>
           </div>
           <div class="fg">
             <label>Currently Insured?</label>
-            <select id="fInsured">
-              <option value="">Select...</option>
-              <option>Yes — Looking to Switch</option>
-              <option>No — Need New Coverage</option>
-            </select>
+            <select id="fInsured"><option value="">Select...</option><option>Yes — Looking to Switch</option><option>No — Need New Coverage</option></select>
           </div>
           <button type="submit" class="form-btn" id="submitBtn">Get My Free Quote →</button>
           <p class="form-fine">By submitting you agree to be contacted by a licensed agent. We never sell your data.</p>
@@ -113,7 +576,6 @@
       </div>
     </div>
   </div>
-
   <div class="hero-stats-bar">
     <div class="hstat"><strong>5,000+</strong><span>Policies Written</span></div>
     <div class="hstat-sep"></div>
@@ -125,58 +587,39 @@
   </div>
 </section>
 
-<!-- ========== COVERAGE ========== -->
+<!-- COVERAGE -->
 <section class="sec sec-light" id="coverage">
-  <div class="sec-wm"><img src="images/logo.png" alt="" aria-hidden="true" /></div>
-  <div class="wrap">
+  <div class="sec-wm"><img src="logo.png" alt="" aria-hidden="true" /></div>
+  <div class="wrap rel">
     <div class="sec-eyebrow">AUTO INSURANCE COVERAGE</div>
     <h2 class="sec-h2">Everything You Need.<br/><span class="c-teal">Nothing You Don't.</span></h2>
     <p class="sec-p">We shop multiple top-rated carriers to build the right policy for your budget.</p>
     <div class="cov-grid">
-      <div class="cov-card">
-        <div class="ci">🛡️</div><h3>Liability Coverage</h3>
-        <p>Florida minimum or full coverage — protecting you from at-fault accident costs.</p>
-      </div>
-      <div class="cov-card cov-hot">
-        <div class="hot-tag">Most Popular</div>
-        <div class="ci">🚗</div><h3>Comprehensive & Collision</h3>
-        <p>Full protection — accidents, theft, weather, falling objects, and more.</p>
-      </div>
-      <div class="cov-card">
-        <div class="ci">🏥</div><h3>PIP / Medical Payments</h3>
-        <p>Personal Injury Protection covers you and passengers regardless of fault.</p>
-      </div>
-      <div class="cov-card">
-        <div class="ci">👤</div><h3>Uninsured Motorist</h3>
-        <p>Essential in Florida — protects you when the other driver has no insurance.</p>
-      </div>
-      <div class="cov-card">
-        <div class="ci">🔧</div><h3>Roadside Assistance</h3>
-        <p>Towing, jump starts, flat tires and lockouts — 24/7 peace of mind.</p>
-      </div>
-      <div class="cov-card">
-        <div class="ci">🚙</div><h3>Rental Reimbursement</h3>
-        <p>Keep moving while your car is repaired — we'll cover your rental vehicle.</p>
-      </div>
+      <div class="cov-card reveal"><div class="ci">🛡️</div><h3>Liability Coverage</h3><p>Florida minimum or full coverage — protecting you from at-fault accident costs.</p></div>
+      <div class="cov-card hot reveal"><div class="hot-tag">Most Popular</div><div class="ci">🚗</div><h3>Comprehensive &amp; Collision</h3><p>Full protection — accidents, theft, weather, falling objects, and more.</p></div>
+      <div class="cov-card reveal"><div class="ci">🏥</div><h3>PIP / Medical Payments</h3><p>Personal Injury Protection covers you and passengers regardless of fault.</p></div>
+      <div class="cov-card reveal"><div class="ci">👤</div><h3>Uninsured Motorist</h3><p>Essential in Florida — protects you when the other driver has no insurance.</p></div>
+      <div class="cov-card reveal"><div class="ci">🔧</div><h3>Roadside Assistance</h3><p>Towing, jump starts, flat tires and lockouts — 24/7 peace of mind.</p></div>
+      <div class="cov-card reveal"><div class="ci">🚙</div><h3>Rental Reimbursement</h3><p>Keep moving while your car is repaired — we'll cover your rental vehicle.</p></div>
     </div>
-    <div class="sec-cta-wrap"><a href="#quote" class="btn-teal">Compare My Rates →</a></div>
+    <div class="sec-cta"><a href="#quote" class="btn-teal">Compare My Rates →</a></div>
   </div>
 </section>
 
-<!-- ========== WHY US ========== -->
+<!-- WHY US -->
 <section class="sec sec-dark" id="why">
-  <div class="sec-wm sec-wm-inv"><img src="images/logo.png" alt="" aria-hidden="true" /></div>
+  <div class="sec-wm inv"><img src="logo.png" alt="" aria-hidden="true" /></div>
   <div class="wrap why-grid">
     <div class="why-left">
-      <div class="sec-eyebrow light">WHY A-ALL INSURANCE</div>
-      <h2 class="sec-h2 white">We Work For <em>You,</em><br/><span class="c-teal-lt">Not the Carriers.</span></h2>
-      <p class="sec-p muted">As an independent agency we compare 20+ carriers to get you the best deal — every single time.</p>
+      <div class="sec-eyebrow lt">WHY A-ALL INSURANCE</div>
+      <h2 class="sec-h2 wh">We Work For <em>You,</em><br/><span class="c-lt">Not the Carriers.</span></h2>
+      <p class="sec-p mt">As an independent agency we compare 20+ carriers to get you the best deal — every single time.</p>
       <ul class="why-ul">
-        <li><span class="wi">🏆</span><div><strong>Independent Agency</strong><em>We shop all carriers — not locked into one</em></div></li>
-        <li><span class="wi">⚡</span><div><strong>Quotes in Under 2 Minutes</strong><em>Fast, no-hassle from start to coverage</em></div></li>
-        <li><span class="wi">📞</span><div><strong>Real Local Agents</strong><em>South Florida based — not an overseas call center</em></div></li>
-        <li><span class="wi">💰</span><div><strong>No Hidden Fees</strong><em>Transparent pricing, no surprises at renewal</em></div></li>
-        <li><span class="wi">🔄</span><div><strong>Annual Rate Reviews</strong><em>We check your rate yearly so you never overpay</em></div></li>
+        <li class="reveal"><span class="wi">🏆</span><div><strong>Independent Agency</strong><em>We shop all carriers — not locked into one</em></div></li>
+        <li class="reveal"><span class="wi">⚡</span><div><strong>Quotes in Under 2 Minutes</strong><em>Fast, no-hassle from start to coverage</em></div></li>
+        <li class="reveal"><span class="wi">📞</span><div><strong>Real Local Agents</strong><em>South Florida based — not an overseas call center</em></div></li>
+        <li class="reveal"><span class="wi">💰</span><div><strong>No Hidden Fees</strong><em>Transparent pricing, no surprises at renewal</em></div></li>
+        <li class="reveal"><span class="wi">🔄</span><div><strong>Annual Rate Reviews</strong><em>We check your rate yearly so you never overpay</em></div></li>
       </ul>
       <a href="#quote" class="btn-white">Get My Free Quote</a>
     </div>
@@ -199,119 +642,151 @@
   </div>
 </section>
 
-<!-- ========== HOW IT WORKS ========== -->
-<section class="sec sec-light" id="how">
-  <div class="sec-wm"><img src="images/logo.png" alt="" aria-hidden="true" /></div>
-  <div class="wrap">
+<!-- HOW IT WORKS -->
+<section class="sec sec-offwhite" id="how">
+  <div class="sec-wm"><img src="logo.png" alt="" aria-hidden="true" /></div>
+  <div class="wrap rel">
     <div class="sec-eyebrow">SIMPLE PROCESS</div>
     <h2 class="sec-h2">Covered in <span class="c-teal">3 Easy Steps</span></h2>
     <div class="steps-row">
-      <div class="step">
-        <div class="snum">01</div>
-        <div class="sico">📋</div>
-        <h3>Fill Out the Form</h3>
-        <p>Basic info only — takes less than 2 minutes. No SSN required to start.</p>
-      </div>
+      <div class="step reveal"><div class="snum">01</div><div class="sico">📋</div><h3>Fill Out the Form</h3><p>Basic info only — takes less than 2 minutes. No SSN required to start.</p></div>
       <div class="sarrow">→</div>
-      <div class="step">
-        <div class="snum">02</div>
-        <div class="sico">🔍</div>
-        <h3>We Shop for You</h3>
-        <p>Our agents instantly compare rates across 20+ top-rated carriers.</p>
-      </div>
+      <div class="step reveal"><div class="snum">02</div><div class="sico">🔍</div><h3>We Shop for You</h3><p>Our agents instantly compare rates across 20+ top-rated carriers.</p></div>
       <div class="sarrow">→</div>
-      <div class="step">
-        <div class="snum">03</div>
-        <div class="sico">✅</div>
-        <h3>Pick Your Plan</h3>
-        <p>Choose the best rate, bind your policy, and drive away covered today.</p>
-      </div>
+      <div class="step reveal"><div class="snum">03</div><div class="sico">✅</div><h3>Pick Your Plan</h3><p>Choose the best rate, bind your policy, and drive away covered today.</p></div>
     </div>
-    <div class="sec-cta-wrap"><a href="#quote" class="btn-teal">Start Now — It's Free</a></div>
+    <div class="sec-cta"><a href="#quote" class="btn-teal">Start Now — It's Free</a></div>
   </div>
 </section>
 
-<!-- ========== REVIEWS ========== -->
-<section class="sec sec-offwhite" id="reviews">
-  <div class="sec-wm"><img src="images/logo.png" alt="" aria-hidden="true" /></div>
-  <div class="wrap">
+<!-- REVIEWS -->
+<section class="sec sec-light" id="reviews">
+  <div class="sec-wm"><img src="logo.png" alt="" aria-hidden="true" /></div>
+  <div class="wrap rel">
     <div class="sec-eyebrow">CUSTOMER REVIEWS</div>
     <h2 class="sec-h2">Real People. <span class="c-teal">Real Savings.</span></h2>
     <div class="rev-grid">
-      <div class="rev-card">
-        <div class="rev-stars">★★★★★</div>
-        <p>"Switched from my old insurer and saved $600 a year. The agent was super helpful and got everything done same day. Highly recommend A-All!"</p>
-        <div class="rev-who"><div class="rev-av">M</div><div><strong>Maria G.</strong><span>West Palm Beach, FL</span></div></div>
-      </div>
-      <div class="rev-card rev-hot">
-        <div class="rev-stars">★★★★★</div>
-        <p>"I was paying way too much for coverage I didn't need. A-All found me a better plan for almost half the price. Amazing — they actually answer the phone!"</p>
-        <div class="rev-who"><div class="rev-av">D</div><div><strong>David R.</strong><span>Boca Raton, FL</span></div></div>
-      </div>
-      <div class="rev-card">
-        <div class="rev-stars">★★★★★</div>
-        <p>"Needed coverage fast after buying a new car. Called A-All and had my policy active within the hour. Professional, fast, and great rates."</p>
-        <div class="rev-who"><div class="rev-av">J</div><div><strong>Jessica T.</strong><span>Lake Worth, FL</span></div></div>
-      </div>
+      <div class="rev-card reveal"><div class="rev-stars">★★★★★</div><p>"Switched from my old insurer and saved $600 a year. The agent was super helpful and got everything done same day. Highly recommend A-All!"</p><div class="rev-who"><div class="rev-av">M</div><div><strong>Maria G.</strong><span>West Palm Beach, FL</span></div></div></div>
+      <div class="rev-card feat reveal"><div class="rev-stars">★★★★★</div><p>"I was paying way too much for coverage I didn't need. A-All found me a better plan for almost half the price. Amazing — they actually answer the phone!"</p><div class="rev-who"><div class="rev-av">D</div><div><strong>David R.</strong><span>Boca Raton, FL</span></div></div></div>
+      <div class="rev-card reveal"><div class="rev-stars">★★★★★</div><p>"Needed coverage fast after buying a new car. Called A-All and had my policy active within the hour. Professional, fast, and great rates."</p><div class="rev-who"><div class="rev-av">J</div><div><strong>Jessica T.</strong><span>Lake Worth, FL</span></div></div></div>
     </div>
-    <div class="g-badge">
-      <div class="g-dot">G</div>
-      <div><strong>4.9 / 5 Stars</strong><span>Based on 200+ Google Reviews</span></div>
-    </div>
+    <div class="g-badge"><div class="g-dot">G</div><div><strong>4.9 / 5 Stars</strong><span>Based on 200+ Google Reviews</span></div></div>
   </div>
 </section>
 
-<!-- ========== SERVICES ========== -->
+<!-- SERVICES -->
 <section class="sec sec-dark" id="services">
-  <div class="sec-wm sec-wm-inv"><img src="images/logo.png" alt="" aria-hidden="true" /></div>
-  <div class="wrap">
-    <div class="sec-eyebrow light">FULL SERVICE AGENCY</div>
-    <h2 class="sec-h2 white">We Cover <span class="c-teal-lt">More Than Cars.</span></h2>
-    <p class="sec-p muted">One agency for all your insurance and business needs.</p>
+  <div class="sec-wm inv"><img src="logo.png" alt="" aria-hidden="true" /></div>
+  <div class="wrap rel">
+    <div class="sec-eyebrow lt">FULL SERVICE AGENCY</div>
+    <h2 class="sec-h2 wh">We Cover <span class="c-lt">More Than Cars.</span></h2>
+    <p class="sec-p mt">One agency for all your insurance and business needs.</p>
     <div class="srv-grid">
-      <a href="#quote" class="srv-tile"><span class="srv-ico">🏠</span><h4>Homeowners</h4><p>Protect your home &amp; belongings</p></a>
-      <a href="#quote" class="srv-tile"><span class="srv-ico">⛵</span><h4>Boat / Watercraft</h4><p>Florida's #1 pastime — covered</p></a>
-      <a href="#quote" class="srv-tile"><span class="srv-ico">🏍️</span><h4>Motorcycle</h4><p>Ride with confidence</p></a>
-      <a href="#quote" class="srv-tile"><span class="srv-ico">🏢</span><h4>General Liability</h4><p>Business protection you can trust</p></a>
-      <a href="#quote" class="srv-tile"><span class="srv-ico">📄</span><h4>Business Formation</h4><p>LLC, S-Corp setup &amp; docs</p></a>
-      <a href="#quote" class="srv-tile"><span class="srv-ico">💼</span><h4>Tax Services</h4><p>Personal &amp; business tax prep</p></a>
+      <a href="#quote" class="srv-tile reveal"><span class="srv-ico">🏠</span><h4>Homeowners</h4><p>Protect your home &amp; belongings</p></a>
+      <a href="#quote" class="srv-tile reveal"><span class="srv-ico">⛵</span><h4>Boat / Watercraft</h4><p>Florida's #1 pastime — covered</p></a>
+      <a href="#quote" class="srv-tile reveal"><span class="srv-ico">🏍️</span><h4>Motorcycle</h4><p>Ride with confidence</p></a>
+      <a href="#quote" class="srv-tile reveal"><span class="srv-ico">🏢</span><h4>General Liability</h4><p>Business protection you can trust</p></a>
+      <a href="#quote" class="srv-tile reveal"><span class="srv-ico">📄</span><h4>Business Formation</h4><p>LLC, S-Corp setup &amp; docs</p></a>
+      <a href="#quote" class="srv-tile reveal"><span class="srv-ico">💼</span><h4>Tax Services</h4><p>Personal &amp; business tax prep</p></a>
     </div>
   </div>
 </section>
 
-<!-- ========== CTA BAND ========== -->
-<section class="sec-cta-band">
-  <div class="sec-wm sec-wm-inv"><img src="images/logo.png" alt="" aria-hidden="true" /></div>
-  <div class="wrap cta-band-inner">
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="sec-wm inv"><img src="logo.png" alt="" aria-hidden="true" /></div>
+  <div class="wrap cta-inner">
     <div><h2>Ready to Start Saving?</h2><p>Get your free quote in 2 minutes — no obligation, no pressure.</p></div>
-    <div class="cta-band-btns">
+    <div class="cta-btns">
       <a href="#quote" class="btn-white">Get Free Quote</a>
       <a href="tel:+15616312155" class="btn-outline-wh">📞 (561) 631-2155</a>
     </div>
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="ft-brand">
-      <img src="images/logo.png" alt="A-All Insurance Group Inc" class="ft-logo" />
+      <img src="logo.png" alt="A-All Insurance Group Inc" class="ft-logo" />
       <p>Independent insurance agency licensed in Florida, proudly serving South Florida families and businesses.</p>
     </div>
     <div class="ft-col"><h5>Quick Links</h5><a href="#quote">Get a Quote</a><a href="#coverage">Auto Coverage</a><a href="#why">About Us</a><a href="#services">All Services</a><a href="#reviews">Reviews</a></div>
     <div class="ft-col"><h5>Insurance</h5><a href="#quote">Auto Insurance</a><a href="#services">Home Insurance</a><a href="#services">Boat Insurance</a><a href="#services">Motorcycle</a><a href="#services">General Liability</a></div>
     <div class="ft-col"><h5>Contact</h5><a href="tel:+15616312155">📞 (561) 631-2155</a><a href="mailto:info@a-allinsurance.com">✉️ info@a-allinsurance.com</a><p>📍 South Florida, FL</p><p class="ft-hours">Mon–Fri: 9am–6pm<br/>Sat: 10am–3pm</p></div>
   </div>
-  <div class="ft-bar">
-    <div class="wrap ft-bar-in">
-      <p>© 2025 A-All Insurance Group Inc. All rights reserved. Licensed Insurance Agency — Florida.</p>
-      <div><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
-    </div>
-  </div>
+  <div class="ft-bar"><div class="wrap ft-bar-in"><p>© 2025 A-All Insurance Group Inc. All rights reserved. Licensed Insurance Agency — Florida.</p><div><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div></div></div>
 </footer>
 
 <a href="tel:+15616312155" class="fab" aria-label="Call Now">📞</a>
 
-<script src="js/main.js"></script>
+<script>
+// HEADER SCROLL
+const hdr = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 30));
+
+// MOBILE MENU
+document.getElementById('burgerBtn').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
+  });
+});
+
+// PHONE FORMAT
+const fPhone = document.getElementById('fPhone');
+if (fPhone) fPhone.addEventListener('input', function() {
+  let v = this.value.replace(/\D/g,'').substring(0,10);
+  if (v.length >= 6) v = `(${v.substring(0,3)}) ${v.substring(3,6)}-${v.substring(6)}`;
+  else if (v.length >= 3) v = `(${v.substring(0,3)}) ${v.substring(3)}`;
+  this.value = v;
+});
+
+// ZIP
+const fZip = document.getElementById('fZip');
+if (fZip) fZip.addEventListener('input', function() { this.value = this.value.replace(/\D/g,'').substring(0,5); });
+
+// FORM
+const qForm = document.getElementById('quoteForm');
+const fThanks = document.getElementById('formThanks');
+if (qForm) {
+  qForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const n1=document.getElementById('fName'), n2=document.getElementById('lName'),
+          ph=document.getElementById('fPhone'), em=document.getElementById('fEmail'),
+          zp=document.getElementById('fZip');
+    let ok = true;
+    [[n1,v=>v.trim()],[n2,v=>v.trim()],
+     [ph,v=>v.replace(/\D/g,'').length===10],
+     [em,v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)],
+     [zp,v=>/^\d{5}$/.test(v)]
+    ].forEach(([el,fn]) => { const v=fn(el.value); el.classList.toggle('err',!v); if(!v) ok=false; });
+    if (!ok) return;
+    const btn = document.getElementById('submitBtn');
+    btn.disabled=true; btn.textContent='Submitting...';
+    await new Promise(r=>setTimeout(r,700));
+    qForm.style.display='none'; fThanks.style.display='block';
+    document.getElementById('quote').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  qForm.querySelectorAll('input,select').forEach(el => el.addEventListener('input',()=>el.classList.remove('err')));
+}
+
+// SCROLL REVEAL
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay=`${i*0.07}s`; obs.observe(el);
+});
+
+// UTM
+(()=>{new URLSearchParams(window.location.search).forEach((v,k)=>{if(['utm_source','utm_medium','utm_campaign','utm_term','gclid'].includes(k))sessionStorage.setItem(k,v);});})();
+</script>
 </body>
 </html>
