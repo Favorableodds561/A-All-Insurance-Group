@@ -490,6 +490,223 @@ ul{list-style:none}
   .footer-grid{grid-template-columns:1fr}
   .ft-bar-in{flex-direction:column;text-align:center}
 }
+
+/* ===== SAVINGS CALCULATOR ===== */
+.calc-section{
+  position:relative;background:linear-gradient(135deg,#0f1828 0%,#1a2a3a 100%);
+  padding:4rem 0;overflow:hidden;
+}
+.calc-section::before{
+  content:'';position:absolute;inset:0;
+  background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="40" fill="rgba(27,170,177,0.06)"/><circle cx="80" cy="80" r="50" fill="rgba(27,170,177,0.04)"/></svg>') center/cover;
+  pointer-events:none;
+}
+.calc-inner{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+}
+.calc-left .sec-eyebrow{margin-bottom:1rem}
+.calc-left h2{
+  font-family:var(--fd);font-weight:900;
+  font-size:clamp(2rem,3.5vw,2.8rem);color:white;
+  line-height:1.1;margin-bottom:1rem;
+}
+.calc-left p{color:rgba(255,255,255,0.65);font-size:1.05rem;margin-bottom:2rem}
+.calc-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:20px;padding:2.5rem;
+  backdrop-filter:blur(12px);
+}
+.calc-label{
+  font-family:var(--fd);font-weight:700;font-size:0.82rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.7);margin-bottom:0.6rem;
+}
+.calc-premium-display{
+  font-family:var(--fd);font-weight:900;font-size:2.8rem;
+  color:white;text-align:center;margin-bottom:0.4rem;line-height:1;
+}
+.calc-premium-sub{
+  font-size:0.82rem;color:rgba(255,255,255,0.5);
+  text-align:center;margin-bottom:1.8rem;
+}
+.calc-slider{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:6px;border-radius:3px;outline:none;
+  background:linear-gradient(to right,var(--teal) 0%,var(--teal) 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 100%);
+  cursor:pointer;margin-bottom:0.5rem;
+}
+.calc-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:24px;height:24px;border-radius:50%;
+  background:var(--teal);border:3px solid white;
+  box-shadow:0 2px 12px rgba(27,170,177,0.5);cursor:pointer;
+  transition:transform 0.15s;
+}
+.calc-slider::-webkit-slider-thumb:hover{transform:scale(1.2)}
+.calc-slider::-moz-range-thumb{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--teal);border:3px solid white;cursor:pointer;
+}
+.calc-range-labels{
+  display:flex;justify-content:space-between;
+  font-size:0.78rem;color:rgba(255,255,255,0.4);
+  margin-bottom:2rem;
+}
+.calc-divider{
+  height:1px;background:rgba(255,255,255,0.1);margin:1.5rem 0;
+}
+.calc-result-label{
+  font-family:var(--fd);font-weight:700;font-size:0.8rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.6);text-align:center;margin-bottom:0.5rem;
+}
+.calc-savings-display{
+  text-align:center;margin-bottom:0.4rem;
+}
+.calc-savings-display .amount{
+  font-family:var(--fd);font-weight:900;
+  font-size:3.5rem;color:var(--teal-lt);line-height:1;
+}
+.calc-savings-display .per{
+  font-size:1.2rem;color:rgba(255,255,255,0.6);font-weight:600;
+}
+.calc-savings-sub{
+  font-size:0.82rem;color:rgba(255,255,255,0.45);
+  text-align:center;margin-bottom:1.8rem;
+}
+.calc-cta-btn{
+  display:block;width:100%;padding:16px;
+  background:var(--teal);color:white;border:none;
+  border-radius:10px;cursor:pointer;
+  font-family:var(--fd);font-weight:900;font-size:1.1rem;
+  letter-spacing:0.04em;text-transform:uppercase;
+  box-shadow:var(--sh-teal);transition:all var(--t);
+  text-align:center;text-decoration:none;
+}
+.calc-cta-btn:hover{background:var(--teal-dk);transform:translateY(-2px)}
+.calc-savings-bar{
+  height:8px;border-radius:4px;
+  background:rgba(255,255,255,0.1);
+  margin-bottom:1rem;overflow:hidden;
+}
+.calc-savings-fill{
+  height:100%;border-radius:4px;
+  background:linear-gradient(90deg,var(--teal),var(--teal-lt));
+  transition:width 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+@media(max-width:768px){
+  .calc-inner{grid-template-columns:1fr;gap:2rem}
+}
+
+/* ===== AGENT STATUS BADGE ===== */
+.agent-status{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(74,222,128,0.12);
+  border:1px solid rgba(74,222,128,0.3);
+  border-radius:100px;padding:6px 14px;
+  font-family:var(--fd);font-weight:700;font-size:0.8rem;
+  letter-spacing:0.04em;color:#4ade80;
+  transition:all 0.5s;white-space:nowrap;
+}
+.agent-status.offline{
+  background:rgba(251,191,36,0.12);
+  border-color:rgba(251,191,36,0.3);color:#fbbf24;
+}
+.agent-status.closed{
+  background:rgba(148,163,184,0.12);
+  border-color:rgba(148,163,184,0.25);color:#94a3b8;
+}
+.status-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#4ade80;flex-shrink:0;
+  animation:ring-pulse 1.8s infinite;
+}
+.agent-status.offline .status-dot{background:#fbbf24;animation:none}
+.agent-status.closed .status-dot{background:#94a3b8;animation:none}
+/* mobile status badge */
+.mob-status{
+  padding:10px 28px;
+  font-family:var(--fd);font-weight:700;font-size:0.9rem;
+  display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid var(--off);
+}
+
+/* ===== CHAT BUBBLE ===== */
+.chat-bubble{
+  position:fixed;bottom:100px;left:24px;z-index:8500;
+}
+.chat-toggle{
+  width:58px;height:58px;border-radius:50%;
+  background:var(--teal);color:white;border:none;cursor:pointer;
+  font-size:1.5rem;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 30px rgba(27,170,177,0.5);
+  transition:all var(--t);
+  animation:pulse-cta 3s infinite;
+}
+.chat-toggle:hover{background:var(--teal-dk);transform:scale(1.08)}
+.chat-toggle .chat-notif{
+  position:absolute;top:-3px;right:-3px;
+  width:18px;height:18px;background:#ef4444;color:white;
+  border-radius:50%;font-size:0.65rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid white;
+}
+.chat-popup{
+  position:absolute;bottom:70px;left:0;
+  width:300px;background:white;border-radius:16px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.2);
+  overflow:hidden;transform:scale(0.8) translateY(20px);
+  opacity:0;pointer-events:none;
+  transform-origin:bottom left;
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.chat-popup.open{
+  transform:scale(1) translateY(0);
+  opacity:1;pointer-events:all;
+}
+.chat-popup-header{
+  background:linear-gradient(135deg,var(--teal),var(--teal-dk));
+  padding:1.2rem 1.4rem;display:flex;align-items:center;gap:12px;
+}
+.chat-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;border:2px solid rgba(255,255,255,0.4);
+}
+.chat-popup-header div strong{display:block;color:white;font-family:var(--fd);font-weight:800;font-size:1rem}
+.chat-popup-header div span{font-size:0.78rem;color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:5px}
+.chat-popup-body{padding:1.4rem;}
+.chat-msg{
+  background:var(--off);border-radius:0 12px 12px 12px;
+  padding:0.9rem 1.1rem;font-size:0.93rem;color:var(--slate);
+  line-height:1.6;margin-bottom:1.2rem;
+  animation:fadeUp 0.4s ease;
+}
+.chat-msg strong{color:var(--teal)}
+.chat-actions{display:flex;flex-direction:column;gap:0.6rem}
+.chat-action-btn{
+  display:block;width:100%;padding:12px 16px;
+  border-radius:9px;text-align:center;
+  font-family:var(--fd);font-weight:800;font-size:0.95rem;
+  letter-spacing:0.03em;text-transform:uppercase;
+  transition:all var(--t);cursor:pointer;border:none;
+}
+.chat-action-btn.primary{background:var(--teal);color:white;box-shadow:var(--sh-teal)}
+.chat-action-btn.primary:hover{background:var(--teal-dk);transform:translateY(-1px)}
+.chat-action-btn.secondary{background:var(--off);color:var(--slate);border:1px solid var(--border)}
+.chat-action-btn.secondary:hover{background:var(--border)}
+.chat-close{
+  position:absolute;top:10px;right:12px;
+  background:none;border:none;color:rgba(255,255,255,0.7);
+  font-size:1.1rem;cursor:pointer;padding:4px;transition:color var(--t);
+}
+.chat-close:hover{color:white}
+@media(max-width:480px){
+  .chat-bubble{bottom:90px;left:16px}
+  .chat-popup{width:calc(100vw - 40px)}
+}
 </style>
 </head>
 <body>
@@ -505,6 +722,7 @@ ul{list-style:none}
       <a href="#reviews">Reviews</a>
       <a href="#services">Services</a>
     </nav>
+    <div class="agent-status" id="agentStatus"><span class="status-dot" id="headerStatusDot"></span><span id="headerStatusTxt">Agents Available</span></div>
     <a href="tel:+15616312155" class="hdr-phone">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
       (561) 631-2155
@@ -589,6 +807,50 @@ ul{list-style:none}
     <div class="hstat"><strong>4.9 ★</strong><span>Google Rating</span></div>
     <div class="hstat-sep"></div>
     <div class="hstat"><strong>$487/yr</strong><span>Avg. Savings</span></div>
+  </div>
+</section>
+
+
+<!-- ===== SAVINGS CALCULATOR ===== -->
+<section class="calc-section" id="calculator">
+  <div class="wrap calc-inner">
+    <div class="calc-left">
+      <div class="sec-eyebrow lt">SAVINGS CALCULATOR</div>
+      <h2>See How Much<br/><span class="c-lt">You Could Save</span></h2>
+      <p>Drag the slider to enter what you're currently paying. We'll show you your estimated savings when you switch to A-All Insurance.</p>
+      <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1rem;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:1.4rem">💰</span>
+          <div><strong style="color:white;font-family:var(--fd);font-size:1rem;">Average savings of $487/year</strong><br/><span style="color:rgba(255,255,255,0.55);font-size:0.88rem;">for customers who switch to A-All</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:1.4rem">⚡</span>
+          <div><strong style="color:white;font-family:var(--fd);font-size:1rem;">Quote in under 2 minutes</strong><br/><span style="color:rgba(255,255,255,0.55);font-size:0.88rem;">No SSN required to get started</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:1.4rem">🏆</span>
+          <div><strong style="color:white;font-family:var(--fd);font-size:1rem;">20+ carriers compared</strong><br/><span style="color:rgba(255,255,255,0.55);font-size:0.88rem;">We find your best rate every time</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="calc-card">
+      <div class="calc-label">Your Current Monthly Premium</div>
+      <div class="calc-premium-display" id="calcPremiumDisplay">$150<span style="font-size:1.4rem;opacity:0.6">/mo</span></div>
+      <div class="calc-premium-sub">Drag slider to match what you pay now</div>
+      <input type="range" class="calc-slider" id="calcSlider" min="50" max="500" value="150" step="5" />
+      <div class="calc-range-labels"><span>$50/mo</span><span>$500/mo</span></div>
+      <div class="calc-divider"></div>
+      <div class="calc-result-label">Your Estimated Annual Savings</div>
+      <div class="calc-savings-display">
+        <span class="amount" id="calcSavingsAmount">$486</span>
+        <span class="per">/yr</span>
+      </div>
+      <div class="calc-savings-sub" id="calcSavingsSub">That's $40/month back in your pocket</div>
+      <div class="calc-savings-bar">
+        <div class="calc-savings-fill" id="calcSavingsFill" style="width:32%"></div>
+      </div>
+      <a href="#quote" class="calc-cta-btn" id="calcCtaBtn">Lock In This Rate →</a>
+    </div>
   </div>
 </section>
 
@@ -835,6 +1097,202 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{
 
 // UTM
 (()=>{new URLSearchParams(window.location.search).forEach((v,k)=>{if(['utm_source','utm_medium','utm_campaign','utm_term','gclid'].includes(k))sessionStorage.setItem(k,v);});})();
+
+// ================================================================
+// FEATURE 1: SAVINGS CALCULATOR
+// ================================================================
+(function() {
+  const slider = document.getElementById('calcSlider');
+  const premiumDisplay = document.getElementById('calcPremiumDisplay');
+  const savingsAmount = document.getElementById('calcSavingsAmount');
+  const savingsSub = document.getElementById('calcSavingsSub');
+  const savingsFill = document.getElementById('calcSavingsFill');
+  const ctaBtn = document.getElementById('calcCtaBtn');
+  if (!slider) return;
+
+  function updateCalc() {
+    const monthly = parseInt(slider.value);
+    const annual = monthly * 12;
+    // Savings: 25-38% depending on premium size (higher payers save more %)
+    const pct = monthly < 100 ? 0.22 : monthly < 200 ? 0.28 : monthly < 300 ? 0.32 : 0.36;
+    const savedAnnual = Math.round(annual * pct / 10) * 10;
+    const savedMonthly = Math.round(savedAnnual / 12);
+    const fillPct = Math.min(95, Math.round((savedAnnual / (annual)) * 100));
+
+    premiumDisplay.innerHTML = `$${monthly}<span style="font-size:1.4rem;opacity:0.6">/mo</span>`;
+    savingsAmount.textContent = '$' + savedAnnual.toLocaleString();
+    savingsSub.textContent = `That's $${savedMonthly}/month back in your pocket`;
+    savingsFill.style.width = fillPct + '%';
+    ctaBtn.textContent = `Lock In My $${savedAnnual.toLocaleString()} Savings →`;
+
+    // Update slider gradient fill
+    const pctSlider = ((monthly - 50) / (500 - 50)) * 100;
+    slider.style.background = `linear-gradient(to right, var(--teal) 0%, var(--teal) ${pctSlider}%, rgba(255,255,255,0.15) ${pctSlider}%, rgba(255,255,255,0.15) 100%)`;
+  }
+
+  slider.addEventListener('input', updateCalc);
+  updateCalc();
+})();
+
+// ================================================================
+// FEATURE 2: AGENT STATUS BADGE
+// Business hours (ET): Mon-Fri 10am-1pm, 2pm-5pm | Sat 10am-1pm | Sun closed
+// ================================================================
+(function() {
+  function getAgentStatus() {
+    const now = new Date();
+    // Convert to Eastern Time
+    const etOffset = now.toLocaleString('en-US', {timeZone:'America/New_York', hour:'numeric', hour12:false});
+    const etNow = new Date(now.toLocaleString('en-US', {timeZone:'America/New_York'}));
+    const day = etNow.getDay(); // 0=Sun,1=Mon,...,6=Sat
+    const h = etNow.getHours();
+    const m = etNow.getMinutes();
+    const timeVal = h + m / 60;
+
+    let open = false;
+    if (day >= 1 && day <= 5) {
+      // Mon-Fri: 10am-1pm and 2pm-5pm (lunch 1-2pm)
+      open = (timeVal >= 10 && timeVal < 13) || (timeVal >= 14 && timeVal < 17);
+    } else if (day === 6) {
+      // Saturday: 10am-1pm
+      open = timeVal >= 10 && timeVal < 13;
+    }
+    // Sunday always closed
+
+    // Check if it's a weekday/saturday but outside hours (upcoming)
+    let nextOpen = '';
+    if (!open) {
+      if (day === 0) nextOpen = 'Opens Mon 10am';
+      else if (day === 6 && timeVal >= 13) nextOpen = 'Opens Mon 10am';
+      else if (day >= 1 && day <= 5 && timeVal >= 13 && timeVal < 14) nextOpen = 'Back at 2pm';
+      else if (day >= 1 && day <= 5 && timeVal >= 17) nextOpen = day === 5 ? 'Opens Sat 10am' : 'Opens Tomorrow 10am';
+      else if (day >= 1 && day <= 5 && timeVal < 10) nextOpen = 'Opens at 10am';
+      else nextOpen = 'Opens Soon';
+    }
+
+    return { open, nextOpen };
+  }
+
+  function updateStatusBadges() {
+    const { open, nextOpen } = getAgentStatus();
+    const badges = [
+      { el: document.getElementById('agentStatus'), txt: document.getElementById('headerStatusTxt'), dot: document.getElementById('headerStatusDot') },
+      { el: document.getElementById('chatStatusDot')?.parentElement, txt: document.getElementById('chatStatusTxt'), dot: document.getElementById('chatStatusDot') }
+    ];
+
+    badges.forEach(({ el, txt, dot }) => {
+      if (!el) return;
+      if (open) {
+        el.className = el.className.replace(/offline|closed/g, '').trim();
+        if (txt) txt.textContent = 'Agents Available Now';
+        if (dot) { dot.style.background = '#4ade80'; dot.style.animation = 'ring-pulse 1.8s infinite'; }
+      } else {
+        el.className = el.className + ' offline';
+        if (txt) txt.textContent = nextOpen;
+        if (dot) { dot.style.background = '#fbbf24'; dot.style.animation = 'none'; }
+      }
+    });
+
+    // Also update the call button ring-dot
+    const ringDots = document.querySelectorAll('.ring-dot');
+    ringDots.forEach(d => {
+      d.style.background = open ? '#4ade80' : '#fbbf24';
+      d.style.animation = open ? 'ring-pulse 1.8s infinite' : 'none';
+    });
+  }
+
+  updateStatusBadges();
+  setInterval(updateStatusBadges, 60000); // refresh every minute
+})();
+
+// ================================================================
+// FEATURE 3: CHAT BUBBLE — auto-open after 15s, then close behavior
+// ================================================================
+(function() {
+  const popup = document.getElementById('chatPopup');
+  const toggle = document.getElementById('chatToggle');
+  const closeBtn = document.getElementById('chatClose');
+  const quoteBtn = document.getElementById('chatQuoteBtn');
+  if (!popup || !toggle) return;
+
+  let opened = false;
+  let dismissed = false;
+
+  function openChat() {
+    if (dismissed) return;
+    popup.classList.add('open');
+    // Hide notification dot once seen
+    const notif = toggle.querySelector('.chat-notif');
+    if (notif) notif.style.display = 'none';
+    opened = true;
+  }
+
+  function closeChat() {
+    popup.classList.remove('open');
+    dismissed = true;
+  }
+
+  // Auto-open after 15 seconds if user hasn't scrolled to form
+  const autoTimer = setTimeout(() => {
+    const formVisible = document.getElementById('quote').getBoundingClientRect().top < window.innerHeight;
+    if (!formVisible && !dismissed) openChat();
+  }, 15000);
+
+  toggle.addEventListener('click', () => {
+    if (popup.classList.contains('open')) {
+      closeChat();
+      dismissed = false; // allow re-opening
+    } else {
+      dismissed = false;
+      openChat();
+    }
+  });
+
+  closeBtn.addEventListener('click', closeChat);
+
+  // Close popup when quote button is clicked
+  quoteBtn.addEventListener('click', () => {
+    closeChat();
+    clearTimeout(autoTimer);
+  });
+
+  // If user scrolls to form, cancel auto-open
+  window.addEventListener('scroll', () => {
+    const formTop = document.getElementById('quote').getBoundingClientRect().top;
+    if (formTop < window.innerHeight * 0.8) {
+      clearTimeout(autoTimer);
+    }
+  }, { passive: true, once: true });
+})();
+
 </script>
+
+<!-- ===== CHAT BUBBLE ===== -->
+<div class="chat-bubble" id="chatBubble">
+  <div class="chat-popup" id="chatPopup">
+    <div class="chat-popup-header">
+      <div class="chat-avatar">👩‍💼</div>
+      <div>
+        <strong>A-All Insurance</strong>
+        <span><span class="status-dot" id="chatStatusDot"></span> <span id="chatStatusTxt">Available Now</span></span>
+      </div>
+      <button class="chat-close" id="chatClose">✕</button>
+    </div>
+    <div class="chat-popup-body">
+      <div class="chat-msg">
+        👋 Hi! Get your <strong>free auto insurance quote</strong> in 2 minutes — no SSN needed.<br/><br/>How would you like to connect?
+      </div>
+      <div class="chat-actions">
+        <a href="#quote" class="chat-action-btn primary" id="chatQuoteBtn">📋 Fill Out a Quote</a>
+        <a href="tel:+15616312155" class="chat-action-btn secondary">📞 Call (561) 631-2155</a>
+      </div>
+    </div>
+  </div>
+  <button class="chat-toggle" id="chatToggle" aria-label="Chat with us">
+    💬
+    <span class="chat-notif">1</span>
+  </button>
+</div>
+
 </body>
 </html>
