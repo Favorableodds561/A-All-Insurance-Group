@@ -27,7 +27,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--fb);color:var(--text);background:var(--white);overflow-x:hidden;line-height:1.65}
+body{font-family:var(--fb);color:var(--text);background:url('bg3.png') center top / cover fixed;overflow-x:hidden;line-height:1.65}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
@@ -96,7 +96,7 @@ ul{list-style:none}
 /* ===== HERO ===== */
 .hero{
   position:relative;overflow:hidden;
-  background:linear-gradient(140deg,#1a2035 0%,#0f1828 55%,#0a1520 100%);
+  background:linear-gradient(140deg,rgba(26,32,53,0.92) 0%,rgba(15,24,40,0.90) 55%,rgba(10,21,32,0.92) 100%);
   padding:110px 0 0;min-height:100vh;
   display:flex;flex-direction:column;
 }
@@ -243,9 +243,14 @@ ul{list-style:none}
 
 /* ===== SECTION BASE ===== */
 .sec{position:relative;padding:6rem 0;overflow:hidden}
-.sec-light{background:var(--white)}
-.sec-offwhite{background:var(--off)}
-.sec-dark{background:linear-gradient(140deg,var(--slate) 0%,#1a2035 100%)}
+.sec-light{background:rgba(255,255,255,0.88)}
+.sec-offwhite{background:rgba(244,247,250,0.90)}
+.sec-dark{background:linear-gradient(140deg,rgba(46,50,64,0.93) 0%,rgba(26,32,53,0.95) 100%)}
+/* Coverage gets bg2 behind it */
+#coverage{background:url('bg2.png') center center / cover no-repeat;}
+#coverage::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.78);z-index:0;pointer-events:none}
+#coverage .wrap.rel{position:relative;z-index:2}
+#coverage .sec-wm{z-index:1}
 
 /* Watermark in each section */
 .sec-wm{
@@ -419,7 +424,7 @@ ul{list-style:none}
 .cta-btns{display:flex;gap:1.2rem;flex-wrap:wrap}
 
 /* ===== FOOTER ===== */
-.site-footer{background:#0e1322;color:rgba(255,255,255,.65);padding:5rem 0 0}
+.site-footer{background:rgba(14,19,34,0.96);color:rgba(255,255,255,.65);padding:5rem 0 0}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:3rem;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
 .ft-brand p{font-size:.9rem;line-height:1.75;max-width:280px;margin-top:1rem}
 .ft-logo{height:58px;width:auto;filter:brightness(0) invert(1);opacity:.85}
