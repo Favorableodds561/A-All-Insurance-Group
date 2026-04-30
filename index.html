@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A-All Insurance Group Inc | Get Your Free Auto Insurance Quote</title>
+  <meta name="description" content="Get a fast, free auto insurance quote from A-All Insurance Group Inc. Save money today — local agents, top carriers, instant coverage." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Google Tag Manager / Ads Conversion (replace GTM-XXXXXXX with your GTM ID) -->
+  <!--
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  -->
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== STICKY HEADER ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner container">
+      <a href="#hero" class="logo-link">
+        <img src="images/logo.png" alt="A-All Insurance Group Inc" class="logo" />
+      </a>
+      <nav class="main-nav">
+        <a href="#quote-form">Auto Insurance</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#services">More Services</a>
+      </nav>
+      <a href="tel:+15616312155" class="header-cta">
+        <span class="phone-icon">📞</span>
+        <span>(561) 631-2155</span>
+      </a>
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile nav -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#quote-form" onclick="closeMobileNav()">Get a Quote</a>
+      <a href="#coverage" onclick="closeMobileNav()">Coverage</a>
+      <a href="#why-us" onclick="closeMobileNav()">Why Us</a>
+      <a href="#testimonials" onclick="closeMobileNav()">Reviews</a>
+      <a href="tel:+15616312155" class="mobile-call">📞 Call Now</a>
+    </div>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">⚡ South Florida's Trusted Insurance Group</div>
+        <h1>Lower Your Auto<br/><span class="accent">Insurance Rate</span><br/>in Minutes.</h1>
+        <p class="hero-sub">Compare top carriers. Get real coverage. No obligation.<br/>Local agents who actually pick up the phone.</p>
+        <div class="hero-actions">
+          <a href="#quote-form" class="btn btn-primary btn-lg pulse">Get My Free Quote</a>
+          <a href="tel:+15616312155" class="btn btn-ghost btn-lg">📞 Call Now</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">✅ Free Quote in 2 Min</div>
+          <div class="trust-item">✅ Multiple Carriers</div>
+          <div class="trust-item">✅ Local Agents</div>
+        </div>
+      </div>
+      <div class="hero-form-wrap" id="quote-form">
+        <div class="quote-card">
+          <div class="quote-card-header">
+            <span class="quote-tag">FREE QUOTE</span>
+            <h2>Start Saving Today</h2>
+            <p>Fill out the form and a licensed agent will contact you within minutes.</p>
+          </div>
+          <form class="quote-form" id="autoQuoteForm" novalidate>
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(561) 631-2155" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="zipCode">ZIP Code</label>
+              <input type="text" id="zipCode" name="zipCode" placeholder="33401" maxlength="5" required />
+            </div>
+            <div class="form-group">
+              <label for="vehicles">Number of Vehicles</label>
+              <select id="vehicles" name="vehicles">
+                <option value="">Select...</option>
+                <option value="1">1 Vehicle</option>
+                <option value="2">2 Vehicles</option>
+                <option value="3">3 Vehicles</option>
+                <option value="4+">4+ Vehicles</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="currentInsurance">Currently Insured?</label>
+              <select id="currentInsurance" name="currentInsurance">
+                <option value="">Select...</option>
+                <option value="yes">Yes — Looking to Switch</option>
+                <option value="no">No — Need New Coverage</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full btn-xl">
+              Get My Free Quote →
+            </button>
+            <p class="form-disclaimer">By submitting, you agree to be contacted by a licensed agent. We never sell your information.</p>
+          </form>
+          <!-- Success State -->
+          <div class="form-success" id="formSuccess" style="display:none;">
+            <div class="success-icon">🎉</div>
+            <h3>You're All Set!</h3>
+            <p>A licensed agent will call you within <strong>15 minutes</strong> during business hours.</p>
+            <a href="tel:+15616312155" class="btn btn-primary btn-full">📞 Call Us Now Instead</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Wave bottom -->
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 80L60 68C120 56 240 32 360 24C480 16 600 24 720 32C840 40 960 48 1080 44C1200 40 1320 24 1380 16L1440 8V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z" fill="#f7f9fc"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== SOCIAL PROOF BAR ===== -->
+  <section class="proof-bar">
+    <div class="container proof-inner">
+      <div class="proof-item">
+        <span class="proof-num">5,000+</span>
+        <span class="proof-label">Policies Written</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">20+</span>
+        <span class="proof-label">Carrier Partners</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">4.9★</span>
+        <span class="proof-label">Google Rating</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">$487</span>
+        <span class="proof-label">Avg. Annual Savings</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COVERAGE SECTION ===== -->
+  <section class="coverage" id="coverage">
+    <div class="container">
+      <div class="section-label">AUTO INSURANCE COVERAGE</div>
+      <h2 class="section-title">Everything You Need.<br/>Nothing You Don't.</h2>
+      <p class="section-sub">We shop multiple carriers to find the right coverage at the right price — tailored to you.</p>
+      <div class="coverage-grid">
+        <div class="coverage-card">
+          <div class="cov-icon">🛡️</div>
+          <h3>Liability Coverage</h3>
+          <p>Florida minimum or full coverage — we'll find what fits your budget and protects your assets.</p>
+        </div>
+        <div class="coverage-card featured">
+          <div class="cov-badge">Most Popular</div>
+          <div class="cov-icon">🚗</div>
+          <h3>Comprehensive & Collision</h3>
+          <p>Full protection for your vehicle against accidents, theft, weather damage, and more.</p>
+        </div>
+        <div class="coverage-card">
+          <div class="cov-icon">🏥</div>
+          <h3>PIP / Medical Payments</h3>
+          <p>Florida's Personal Injury Protection covers you and your passengers regardless of fault.</p>
+        </div>
+        <div class="coverage-card">
+          <div class="cov-icon">👤</div>
+          <h3>Uninsured Motorist</h3>
+          <p>Protect yourself from drivers with no insurance — a must-have in Florida.</p>
+        </div>
+        <div class="coverage-card">
+          <div class="cov-icon">🔧</div>
+          <h3>Roadside Assistance</h3>
+          <p>Towing, jump starts, flat tires, lockouts — we've got you covered 24/7.</p>
+        </div>
+        <div class="coverage-card">
+          <div class="cov-icon">🚙</div>
+          <h3>Rental Reimbursement</h3>
+          <p>Keep moving while your car is in the shop. We'll cover your rental vehicle.</p>
+        </div>
+      </div>
+      <div class="coverage-cta">
+        <a href="#quote-form" class="btn btn-primary btn-lg">Compare My Rates →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY US SECTION ===== -->
+  <section class="why-us" id="why-us">
+    <div class="why-bg"></div>
+    <div class="container why-inner">
+      <div class="why-content">
+        <div class="section-label light">WHY A-ALL INSURANCE</div>
+        <h2 class="section-title light">We Work For You,<br/>Not the Carriers.</h2>
+        <p class="section-sub light">As an independent agency, we shop your rate across 20+ top-rated carriers to find you the best deal — every single time.</p>
+        <ul class="why-list">
+          <li>
+            <div class="why-icon">🏆</div>
+            <div>
+              <strong>Independent Agency</strong>
+              <span>We compare multiple carriers — not just one</span>
+            </div>
+          </li>
+          <li>
+            <div class="why-icon">⚡</div>
+            <div>
+              <strong>Lightning Fast Quotes</strong>
+              <span>Get a real quote in under 2 minutes</span>
+            </div>
+          </li>
+          <li>
+            <div class="why-icon">📞</div>
+            <div>
+              <strong>Real Local Agents</strong>
+              <span>South Florida based — not a call center overseas</span>
+            </div>
+          </li>
+          <li>
+            <div class="why-icon">💰</div>
+            <div>
+              <strong>No Hidden Fees</strong>
+              <span>Transparent pricing, no surprises at renewal</span>
+            </div>
+          </li>
+          <li>
+            <div class="why-icon">🔄</div>
+            <div>
+              <strong>Annual Rate Reviews</strong>
+              <span>We check your rate every year so you're never overpaying</span>
+            </div>
+          </li>
+        </ul>
+        <a href="#quote-form" class="btn btn-teal btn-lg">Get My Free Quote</a>
+      </div>
+      <div class="why-visual">
+        <div class="carriers-card">
+          <h4>Our Top Carrier Partners</h4>
+          <div class="carrier-logos">
+            <div class="carrier-pill">Progressive</div>
+            <div class="carrier-pill">Dairyland</div>
+            <div class="carrier-pill">Bristol West</div>
+            <div class="carrier-pill">Travelers</div>
+            <div class="carrier-pill">The General</div>
+            <div class="carrier-pill">Foremost</div>
+            <div class="carrier-pill">National General</div>
+            <div class="carrier-pill">Safeco</div>
+            <div class="carrier-pill">+ Many More</div>
+          </div>
+        </div>
+        <div class="savings-card">
+          <div class="savings-label">Average Customer Savings</div>
+          <div class="savings-amount">$487<span>/yr</span></div>
+          <div class="savings-note">When switching from their previous insurer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-label">SIMPLE PROCESS</div>
+      <h2 class="section-title">Get Insured in 3 Easy Steps</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-icon">📋</div>
+          <h3>Fill Out the Form</h3>
+          <p>Takes less than 2 minutes. Just your basic info — no SSN required to get started.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-icon">🔍</div>
+          <h3>We Shop for You</h3>
+          <p>Our agents compare rates from 20+ carriers and find your best options instantly.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-icon">✅</div>
+          <h3>Pick Your Plan</h3>
+          <p>Choose the coverage that fits your budget and drive away protected today.</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top: 3rem;">
+        <a href="#quote-form" class="btn btn-primary btn-lg">Start Now — It's Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-label">CUSTOMER REVIEWS</div>
+      <h2 class="section-title">Real People. Real Savings.</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Switched from my old insurer and saved $600 a year. The agent was super helpful and got everything done same day. Highly recommend A-All!"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">M</div>
+            <div>
+              <strong>Maria G.</strong>
+              <span>West Palm Beach, FL</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card featured-review">
+          <div class="stars">★★★★★</div>
+          <p>"I was paying way too much for coverage I didn't need. A-All found me a better plan for almost half the price. Amazing service — they actually answer the phone!"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">D</div>
+            <div>
+              <strong>David R.</strong>
+              <span>Boca Raton, FL</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"I needed coverage fast after buying a new car. Called A-All and had my policy active within the hour. Professional, fast, and great rates."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">J</div>
+            <div>
+              <strong>Jessica T.</strong>
+              <span>Lake Worth, FL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="google-badge">
+        <span class="g-logo">G</span>
+        <div>
+          <strong>4.9 / 5</strong>
+          <span>Based on 200+ Google Reviews</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OTHER SERVICES (Future Campaign Channels) ===== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-label">FULL SERVICE AGENCY</div>
+      <h2 class="section-title">We Cover More Than Cars.</h2>
+      <p class="section-sub">One agency for all your insurance and business needs. Ask about any of these services.</p>
+      <div class="services-grid">
+        <a href="#quote-form" class="service-tile">
+          <div class="service-icon">🏠</div>
+          <h4>Homeowners Insurance</h4>
+          <p>Protect your home and belongings</p>
+        </a>
+        <a href="#quote-form" class="service-tile">
+          <div class="service-icon">⛵</div>
+          <h4>Boat / Watercraft Insurance</h4>
+          <p>Florida's #1 pastime — covered</p>
+        </a>
+        <a href="#quote-form" class="service-tile">
+          <div class="service-icon">🏍️</div>
+          <h4>Motorcycle Insurance</h4>
+          <p>Ride with confidence</p>
+        </a>
+        <a href="#quote-form" class="service-tile">
+          <div class="service-icon">🏢</div>
+          <h4>General Liability</h4>
+          <p>Business protection you can rely on</p>
+        </a>
+        <a href="#quote-form" class="service-tile">
+          <div class="service-icon">📄</div>
+          <h4>Business Formation</h4>
+          <p>LLC, S-Corp setup &amp; documentation</p>
+        </a>
+        <a href="#quote-form" class="service-tile">
+          <div class="service-icon">💼</div>
+          <h4>Tax Services</h4>
+          <p>Personal &amp; business tax preparation</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOTTOM CTA STRIP ===== -->
+  <section class="cta-strip">
+    <div class="container cta-strip-inner">
+      <div>
+        <h2>Ready to Start Saving?</h2>
+        <p>Get your free quote today — no obligation, no pressure.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="#quote-form" class="btn btn-white btn-lg">Get Free Quote</a>
+        <a href="tel:+15616312155" class="btn btn-ghost-white btn-lg">📞 (561) 631-2155</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="A-All Insurance Group Inc" class="footer-logo" />
+        <p>A-All Insurance Group Inc is an independent insurance agency licensed in Florida, serving clients throughout South Florida.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Google">G</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <a href="#quote-form">Get a Quote</a>
+        <a href="#coverage">Auto Coverage</a>
+        <a href="#why-us">About Us</a>
+        <a href="#services">All Services</a>
+        <a href="#testimonials">Reviews</a>
+      </div>
+      <div class="footer-links">
+        <h5>Insurance</h5>
+        <a href="#quote-form">Auto Insurance</a>
+        <a href="#services">Home Insurance</a>
+        <a href="#services">Boat Insurance</a>
+        <a href="#services">Motorcycle Insurance</a>
+        <a href="#services">General Liability</a>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact Us</h5>
+        <a href="tel:+15616312155">📞 (561) 631-2155</a>
+        <a href="mailto:info@a-allinsurance.com">✉️ info@a-allinsurance.com</a>
+        <p>📍 South Florida</p>
+        <p class="hours">Mon–Fri: 9am–6pm<br/>Sat: 10am–3pm</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 A-All Insurance Group Inc. All rights reserved. Licensed Insurance Agency — Florida.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING CALL BUTTON (mobile) ===== -->
+  <a href="tel:+15616312155" class="float-call" aria-label="Call us">
+    📞
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
